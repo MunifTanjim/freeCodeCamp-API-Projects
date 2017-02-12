@@ -8,11 +8,24 @@ const baseCoder = require('../lib/baseCoder')
 const mongoUrl = process.env.MONGODB_URL
 const urlShortnerApp = process.env.URL_SHORTNER_APP_URL
 
-Router.use(
-  express.static(
-    path.resolve(__dirname + '../static/url-shortner')
-  )
-)
+const info = {
+  title: 'URL Shortner Microservice',
+  apis: [
+    [
+      'GET',
+      '/<shortcode>',
+      '/2'
+    ], [
+      'GET',
+      '/new/<url>',
+      '/new/https://www.freecodecamp.com'
+    ]
+  ]
+}
+
+Router.get('/', (req,res) => {
+  res.render('docLayout', info)
+})
 
 Router.get('/:short_id', function(req,res) {
   var short_id = req.params.short_id

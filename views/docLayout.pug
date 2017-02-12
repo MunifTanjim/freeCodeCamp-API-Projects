@@ -1,0 +1,37 @@
+extends layout
+
+block headerContent
+  .branding
+    a.logo(href='https://www.freecodecamp.com')
+      img(src='https://www.freecodecamp.com/design-style-guide/downloads/freeCodeCamp-alternative.png', alt='freeCodeCamp Logo')
+    a.subtitle(href='..') API Projects
+  h1.title= title
+  span.byline
+    | by
+    |
+    a.author(href='https://www.freecodecamp.com/MunifTanjim') MunifTanjim
+
+block mainContent
+  section.doc
+    table.apis
+      caption
+        h2 API Endpoints
+      thead
+        tr
+          th Request Type
+          th URL Endpoint
+          th Example
+      tbody
+        each api in apis
+          tr
+            each info, i in api
+              case i
+                when 0
+                  td= '[ ' + info +  ' ]'
+                when 2
+                  td!= info
+                default
+                  td= info
+
+  if includeFileUploader
+    include fileUploader

@@ -1,0 +1,29 @@
+extends layout
+
+block headerContent
+  a.logo(href='https://www.freecodecamp.com')
+    img(src='https://www.freecodecamp.com/design-style-guide/downloads/freeCodeCamp-alternative.png', alt='freeCodeCamp Logo')
+  h1 API Projects
+  span.byline
+    | by
+    |
+    a.author(href='https://www.freecodecamp.com/MunifTanjim') MunifTanjim
+
+
+block mainContent
+  ul.projects
+    li
+      a.button(href='timestamp')
+        h2 Timestamp Microservice
+    li
+      a.button(href='request-header-parser')
+        h2 Request Header Parser Microservice
+    li
+      a.button(href='url-shortner')
+        h2 URL Shortner Microservice
+    li
+      a.button(href='image-search')
+        h2 Image Search Abstraction Layer
+    li
+      a.button(href='file-metadata')
+        h2 File Metadata Microservice

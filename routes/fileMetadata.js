@@ -7,11 +7,21 @@ const upload = multer({
   storage: multer.memoryStorage()
 }).single('file')
 
-Router.use(
-  express.static(
-    path.resolve(__dirname + '../static/file-metadata')
-  )
-)
+const info = {
+  title: 'File Metadata Microservice',
+  apis: [
+    [
+      'POST',
+      '/filesize',
+      'Check below...'
+    ]
+  ],
+  includeFileUploader: true
+}
+
+Router.get('/', (req,res) => {
+  res.render('docLayout', info)
+})
 
 Router.post('/filesize', upload, function(req, res) {
   res.json({

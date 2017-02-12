@@ -1,0 +1,7 @@
+section
+  h2 Upload File to test the API
+  form#file-upload.file-upload(action='/file-metadata/filesize', method='post', enctype='multipart/form-data')
+    .file-input
+      input#file(type='file', required='', name='file')
+      label.button(for='file') Choose a File...
+    button.button(type='submit') Go

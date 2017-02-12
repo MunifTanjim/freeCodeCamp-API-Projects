@@ -12,8 +12,15 @@ const port = process.env.PORT
 const app = express()
 
 app.enable('trust proxy') // needed for request-header-parser
+app.set('view engine', 'pug')
 
 app.use(express.static('static'))
+
+app.get('/', (req,res) => {
+  res.render('landingPage', {
+    title: '(freeCodeCamp) API Projects - MunifTanjim'
+  })
+})
 
 app.use('/timestamp', timestamp)
 app.use('/request-header-parser', requestHeaderParser)

@@ -2,11 +2,19 @@ const express = require('express')
 const Router = express.Router()
 const path = require('path')
 
-Router.use(
-  express.static(
-    path.resolve(__dirname + '../static/request-header-parser')
-  )
-)
+const info = {
+  title: 'Request Header Parser Microservice',
+  apis: [
+    [
+      'GET',
+      '/whoami'
+    ]
+  ]
+}
+
+Router.get('/', (req,res) => {
+  res.render('docLayout', info)
+})
 
 Router.get('/whoami', function(req,res){
   var ua = req.header('user-agent')

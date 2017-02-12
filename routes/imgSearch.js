@@ -10,11 +10,27 @@ const mongoUrl = process.env.MONGODB_URL
 
 const img = new imgClient(cseID,cseAPI)
 
-Router.use(
-  express.static(
-    path.resolve(__dirname + '../static/image-search')
-  )
-)
+const info = {
+  title: 'Image Search Abstruction Layer',
+  apis: [
+    [
+      'GET',
+      '/search/<keyword>',
+      '/search/cats'
+    ], [
+      'GET',
+      '/search/<keyword>?offset=<number>',
+      '/search/cats?offset=27'
+    ], [
+      'GET',
+      '/latest'
+    ]
+  ]
+}
+
+Router.get('/', (req,res) => {
+  res.render('docLayout', info)
+})
 
 Router.get('/search/:keyword', function(req,res) {
   let keyword = req.params.keyword

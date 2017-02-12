@@ -3,11 +3,20 @@ const Router = express.Router()
 const moment = require('moment')
 const path = require('path')
 
-Router.use(
-  express.static(
-    path.resolve(__dirname + '../static/timestamp')
-  )
-)
+const info = {
+  title: 'Timestamp Microservice',
+  apis: [
+    [
+      'GET',
+      '/<time>',
+      '/September%2002,%202027<br />/1819821600'
+    ]
+  ]
+}
+
+Router.get('/', (req,res) => {
+  res.render('docLayout', info)
+})
 
 Router.get('/:time', function(req, res) {
   var time = req.params.time
