@@ -23,6 +23,7 @@ const info = {
       '/search/cats?offset=27'
     ], [
       'GET',
+      '/latest',
       '/latest'
     ]
   ]

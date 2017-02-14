@@ -7,6 +7,7 @@ const info = {
   apis: [
     [
       'GET',
+      '/whoami',
       '/whoami'
     ]
   ]

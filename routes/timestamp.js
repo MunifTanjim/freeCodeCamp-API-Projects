@@ -8,8 +8,12 @@ const info = {
   apis: [
     [
       'GET',
-      '/<time>',
-      '/September%2002,%202027<br />/1819821600'
+      '/<unix-timestamp>',
+      '/1819821600'
+    ], [
+      'GET',
+      '/<natural language date>',
+      '/September%2002,%202027'
     ]
   ]
 }
