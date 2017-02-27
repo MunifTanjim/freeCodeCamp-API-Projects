@@ -53,9 +53,9 @@ Router.get('/search/:keyword', function(req,res) {
       let results = images.map(function(image) {
         return {
           url: image.url,
-          snippet: image.snippet,
+          snippet: image.description,
           thumbnail: image.thumbnail.url,
-          context: image.contextLink
+          context: image.parentPage
         }
       })
 
